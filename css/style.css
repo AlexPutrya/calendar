@@ -9,3 +9,40 @@ body{
     overflow: auto;
     color: white;
 }
+
+
+
+
+/*таблица*/
+table{
+    background-color: white;
+    color: black;
+}
+
+th {
+  font-weight: normal;
+  color: #039;
+  padding: 10px 15px;
+}
+
+.weekend{
+  background-color: green;
+}
+td {
+  color: #669;
+  border-top: 1px solid #e8edff;
+  padding: 10px 15px;
+}
+tr:hover td{
+  background: #e8edff;
+}
+
+table tr,
+table td{
+    padding: 10px;
+}
+table th,
+table td,
+table tr {
+        border: 1px solid #000;
+    }
