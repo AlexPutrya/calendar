@@ -1,7 +1,8 @@
 <?php
-// 
-//Ни в коем случае не применять time() будут сбои она постоянно меняется
-$now = strtotime("11.01.2017");//начало календаря
+$table = new Table(1, strftime("%d.%m.%Y", strtotime('now')));
+//Ни в коем случае не применять time() и strtotime(now) будут сбои она постоянно меняется
+var_dump($now_date = strftime("%d.%m.%Y", strtotime('now')));
+$now = strtotime("$now_date");//начало календаря
 $end_calendar = $now+86400*29;//Конец календаря 30дней включительно с 1 дня
 
 $rooms_db = array(

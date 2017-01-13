@@ -4,7 +4,7 @@ $pages = [
 	['name'=>'Бронирование', 'href'=>'index.php?page=booking', 'page'=>'booking', 'icon'=>'icon-plus'],
 	['name'=>'Клиенты', 'href'=>'index.php?page=clients', 'page'=>'clients', 'icon'=>'icon-user']
 ];
-$page = !empty($_GET['page']) ? $_GET['page'] : "";
+$page = !empty($_GET['page']) ? $_GET['page'] : "calendar";
 ?>
 <header>
 	<div class="navbar">
