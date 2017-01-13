@@ -48,8 +48,7 @@ if(!($_SESSION['loggined'])){
 				break;
 		}
 	?>
-	<footer>
-		
+	<footer>	
 	</footer>
 </body>
 </html>
