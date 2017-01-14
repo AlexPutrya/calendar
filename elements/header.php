@@ -2,7 +2,8 @@
 $pages = [
 	['name'=>'Календарь', 'href'=>'index.php?page=calendar', 'page'=>'calendar', 'icon'=>'icon-calendar'],
 	['name'=>'Бронирование', 'href'=>'index.php?page=booking', 'page'=>'booking', 'icon'=>'icon-plus'],
-	['name'=>'Клиенты', 'href'=>'index.php?page=clients', 'page'=>'clients', 'icon'=>'icon-user']
+	['name'=>'Клиенты', 'href'=>'index.php?page=clients', 'page'=>'clients', 'icon'=>'icon-user'],
+	['name'=>'Справочник', 'href'=>'index.php?page=catalogue', 'page'=>'catalogue', 'icon'=>'icon-book']
 ];
 $page = !empty($_GET['page']) ? $_GET['page'] : "calendar";
 ?>
@@ -21,7 +22,7 @@ $page = !empty($_GET['page']) ? $_GET['page'] : "calendar";
 	    		}else{
 	    			// echo "<li><a href='{$value['href']}'>{$value['name']}</a></li>";
 	    			echo "<li><a href='{$href}'><i class='{$icon}'></i> {$name}</a></li>";
-	    		}		
+	    		}
 	    	}
 	    	?>
 	    	<li><a href="index.php?auth=exit"><i class="icon-off"></i> Выйти</a></li>

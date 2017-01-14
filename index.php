@@ -44,7 +44,10 @@ if(!($_SESSION['loggined'])){
 			case 'clients':
 				require_once('pages/clients.php');
 				break;
-			
+
+			case 'catalogue':
+				require_once('pages/catalogue.php');
+				break;
 			default:
 				require_once('pages/calendar.php');
 				break;

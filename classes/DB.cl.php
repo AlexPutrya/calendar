@@ -17,10 +17,12 @@ class DB{
 		$smtm = $this->pdo->prepare($sql);
 		if(!empty($parametr)){
 			$smtm->execute($parametr);
+			return $smtm;
 		}else{
 			$smtm->execute();
+			return $smtm;
 		}
-		return $smtm->fetch();
+		// return $smtm->fetch();
 	}
 
 	public function set($sql, $parametr = NULL){

@@ -8,13 +8,13 @@ if(!empty($_POST['user_name']) AND $_POST['user_name'] == "Alex"){
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="libraries/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="../css/authorization.css" rel="stylesheet">
 	<title>Document</title>
 </head>
 <body>
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script src="libraries/bootstrap/js/bootstrap.min.js"></script>
     	<div class="test">
     		<form action="" class="form-signin" method="post">
 				<h2 class="form-signin-heading">Авторизация</h2>

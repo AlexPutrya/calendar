@@ -1,10 +1,23 @@
-<form action="">
+<?php
+$buildings = new Buildings();
+$buildings_list = $buildings->getList();
+?>
+<!-- Форма запроса вида календаря -->
+<form action="" method="POST">
+	Здания <br>
+	<select name="id_building">
+		<?php 
+		foreach ($buildings_list as $building){
+			echo "<option value='{$building['id']}'>{$building['name']}</option>";
+		}
+		?>
+	</select><br>
+	Дата календаря <br>
 	<input type='text' class='datepicker-here' name="primary_date" /><br>
 </form>
 <?php
-$table = new Calendar(1, strftime("%d.%m.%Y", strtotime('now')));
 //Ни в коем случае не применять time() и strtotime(now) будут сбои она постоянно меняется
-var_dump($now_date = strftime("%d.%m.%Y", strtotime('now')));
+$now_date = strftime("%d.%m.%Y", strtotime('now'));
 $now = strtotime("$now_date");//начало календаря
 $end_calendar = $now+86400*29;//Конец календаря 30дней включительно с 1 дня
 
