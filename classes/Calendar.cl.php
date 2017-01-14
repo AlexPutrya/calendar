@@ -1,5 +1,5 @@
 <?php
-class Table{
+class Calendar{
 	private $id_building;
 	private $now_calendar;
 	private $end_calendar;

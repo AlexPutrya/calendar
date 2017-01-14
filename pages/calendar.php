@@ -1,5 +1,8 @@
+<form action="">
+	<input type='text' class='datepicker-here' name="primary_date" /><br>
+</form>
 <?php
-$table = new Table(1, strftime("%d.%m.%Y", strtotime('now')));
+$table = new Calendar(1, strftime("%d.%m.%Y", strtotime('now')));
 //Ни в коем случае не применять time() и strtotime(now) будут сбои она постоянно меняется
 var_dump($now_date = strftime("%d.%m.%Y", strtotime('now')));
 $now = strtotime("$now_date");//начало календаря

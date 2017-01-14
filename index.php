@@ -1,7 +1,7 @@
 <?php
 // Автозагрузка классов по запросу и папки
 spl_autoload_register(function($class_name){
-	require_once("classes/" . $class_name . ".php");
+	require_once("classes/" . $class_name . ".cl.php");
 });
 // Стартуем сессию если ее нет и продолжаем если она есть
 $session = new Sessions();
@@ -19,13 +19,15 @@ if(!($_SESSION['loggined'])){
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
+	<link href="libraries/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet"> 
+	<link href="libraries/datepicker/css/datepicker.min.css" rel="stylesheet" type="text/css">
 	<title>Document</title>
 </head>
 <body>
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="../bootstrap/js/bootstrap.min.js"></script>
+    <script src="libraries/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libraries/datepicker/js/datepicker.min.js"></script>
 	<?php
 		// Выводим хедер
 		require_once('elements/header.php');
