@@ -6,7 +6,7 @@ $rooms_list = $rooms->getList();
 ?>
 <h1>Создание брони</h1>
 <form action="" method="post">
-	<div class="span8">
+	<div class="span4 offset2">
 		Номер брони<br>
 		<input type="text" name="booking_number"  placeholder="<?php echo rand(1,999999)?>" disabled><br>
 		Номер комнаты<br>
@@ -27,12 +27,10 @@ $rooms_list = $rooms->getList();
 			?>
 			<option value="1"></option>
 		</select><br>
-		Дата заселения<br>
-		<input type='text' class='datepicker-here' name="entry_date" /><br>
-		время<input class="input-mini" type="text" name="entry_time"><br>
-		Дата выселения<br>
-		<input type='text' class='datepicker-here' name="exit_date" /><br>
-		время<input class="input-mini" type="text" name="exit_time"><br>
+		Дата и время заселения<br>
+		<input type='text' class="datepicker-here" data-timepicker="true" data-time-format='hh:ii' name="enter_date" /><br>
+		Дата и время выселения<br>
+		<input type='text' class="datepicker-here" data-timepicker="true" data-time-format='hh:ii' name="exit_date" /><br>
 		Количество мест<br>
 		<select name="count_berth" >
 			<option value="1">1</option>
@@ -48,7 +46,8 @@ $rooms_list = $rooms->getList();
 			<option value="4">4</option>
 		</select><br>
 	</div>
-	<div class="span3">
+
+	<div class="span4 offset2">
 		ФИО<br>
 		<input type="text" name="client_name"><br>
 		Телефон<br>
