@@ -22,7 +22,6 @@ class DB{
 			$smtm->execute();
 			return $smtm;
 		}
-		// return $smtm->fetch();
 	}
 
 	public function set($sql, $parametr = NULL){

@@ -6,7 +6,8 @@ $buildings_list = $buildings->getList();
 <form action="" method="POST">
 	Здания <br>
 	<select name="id_building">
-		<?php 
+		<?php
+		// Выводим список выбора здания
 		foreach ($buildings_list as $building){
 			echo "<option value='{$building['id']}'>{$building['name']}</option>";
 		}
@@ -15,6 +16,7 @@ $buildings_list = $buildings->getList();
 	Дата календаря <br>
 	<input type='text' class='datepicker-here' name="primary_date" /><br>
 </form>
+
 <?php
 //Ни в коем случае не применять time() и strtotime(now) будут сбои она постоянно меняется
 $now_date = strftime("%d.%m.%Y", strtotime('now'));
