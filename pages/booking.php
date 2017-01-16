@@ -1,11 +1,30 @@
-<h1>Бронирование номера</h1>
+<?php
+$buildings = new Buildings();
+$buildings_list = $buildings->getList();
+$rooms = new Rooms();
+$rooms_list = $rooms->getList();
+?>
+<h1>Создание брони</h1>
 <form action="" method="post">
 	<div class="span8">
-		Номер брони<br> 
+		Номер брони<br>
 		<input type="text" name="booking_number"  placeholder="<?php echo rand(1,999999)?>" disabled><br>
 		Номер комнаты<br>
 		<!-- Перебрать массив из бд с комнатами даного здания -->
 		<select name="id_room">
+			<?php
+			foreach($buildings_list as $building){
+				echo "<optgroup label='{$building['name']}'>";
+				foreach($rooms_list as $room){
+					if($room['id_building'] != $building['id']){
+						continue;
+					}else{
+						echo "<option value='{$building['id']}/{$room['id']}'>{$room['name']}</option>";
+					}
+				}
+				echo "</optgroup>"; 
+			}
+			?>
 			<option value="1"></option>
 		</select><br>
 		Дата заселения<br>

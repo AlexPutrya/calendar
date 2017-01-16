@@ -4,7 +4,7 @@ $buildings_list = $buildings->getList();
 ?>
 <!-- Форма запроса вида календаря -->
 <form action="" method="POST">
-	Здания <br>
+	Здание <br>
 	<select name="id_building">
 		<?php
 		// Выводим список выбора здания
