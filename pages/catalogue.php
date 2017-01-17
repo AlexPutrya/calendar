@@ -16,7 +16,7 @@ if(!empty($_POST['building_name'])){
 	<form name="new_build" action="" method="POST">
 	Название здания<br>
 	<input type="text" name="building_name"><br>
-	<button type="submit" class="btn"> <i class="icon-ok-circle"></i> Создать</button>
+	<button type="submit" class="btn btn-success"> <i class="icon-ok-circle"></i> Создать</button>
 </form>
 </div>
 
@@ -35,6 +35,6 @@ if(!empty($_POST['building_name'])){
 	</select><br>
 	Название комнаты<br>
 	<input type="text" name="room_name"><br>
-	<button type="submit" class="btn"> <i class="icon-ok-circle"></i> Создать</button>
+	<button type="submit" class="btn btn-success"> <i class="icon-ok-circle"></i> Создать</button>
 </form>
 </div>
