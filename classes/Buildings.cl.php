@@ -22,7 +22,7 @@ class Buildings{
 	}
 	// Создание нового здания
 	public function createBuilding($building_name){
-		$sql = "INSERT INTO buildings(id_building, building_name)VALUES( :id, :building_name)";
+		$sql = "INSERT INTO buildings VALUES( :id, :building_name)";
 		$parametr =  array("building_name" => "$building_name",
 						   "id" => "");
 		$this->database->set($sql, $parametr);

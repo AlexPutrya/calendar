@@ -8,10 +8,12 @@ $rooms_list = $rooms->getList();
 $booking = new Booking();
 // Номер брони
 $booking_number = $booking->generateBookingNumber();
-$message = $booking->addBooking($_POST);
+if(!empty($_POST['id_room'])){
+	$message = $booking->addBooking($_POST);
+}
 ?>
 <h1>Создание брони</h1>
-<?php if(!empty($message)){echo "$message <br>";} ?>
+<?php if(!empty($message)){	echo "<div class='alert alert-success'>$message</div><br>";} ?>
 <form action="" method="POST">
 	<div class="span3 offset4">
 		Номер брони<br>
