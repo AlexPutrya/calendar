@@ -30,7 +30,7 @@ if(!empty($_POST['id_room'])){
 					if($room['id_building'] != $building['id']){
 						continue;
 					}else{
-						echo "<option value='{$room['id']}'>{$room['name']}</option>";
+						echo "<option value='{$building['id']}/{$room['id']}'>{$room['name']}</option>";
 					}
 				}
 				echo "</optgroup>"; 

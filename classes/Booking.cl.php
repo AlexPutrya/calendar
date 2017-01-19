@@ -42,32 +42,42 @@ class Booking{
 			if($key == "client_patronymic" OR $key == "client_email"){
 				continue;
 			}elseif(empty($value)){
-				return $message = "Все поля отмеченные * должны быть заполненны"; 
+				return $message = "Все поля отмеченные * должны быть заполненны";
 			}
 		}
 		// 0=>дата, 1=>время
-		$enter = explode(" ", $post_data['enter_date']);
-		$exit = explode(" ", $post_data['exit_date']);
-		// Переводим в метку
-		$post_data['enter_date'] = strtotime($enter[0]);
-		$post_data['exit_date'] = strtotime($exit[0]);
 		// Получаем время строкой
-		$post_data['enter_time'] = $enter[1];
-		$post_data['exit_time'] = $exit[1];
+		$post_data['enter_time'] = explode(" ", $post_data['enter_date'])[1];
+		$post_data['exit_time'] = explode(" ", $post_data['exit_date'])[1];
+		// Переводим в метку
+		$post_data['enter_date'] = strtotime(explode(" ", $post_data['enter_date'])[0]);
+		$post_data['exit_date'] = strtotime(explode(" ", $post_data['exit_date'])[0]);
+
+		// 0=> id_building, 1=>id_room
+		$post_data['id_building'] = explode("/", $post_data['id_room'])[0]; 
+		$post_data['id_room'] = explode("/", $post_data['id_room'])[1];
 		$post_data['id_client'] = rand(0, 1000);//Переделать на нормальный с поиском
 
-		$sql1 = "INSERT INTO booking VALUES( :booking_number, :id_room, :enter_date, :enter_time, :exit_date, :exit_time, :count_berth, :extra_berth, :status, :id_client)";
+		$sql1 = "INSERT INTO booking VALUES( :booking_number, :id_room, :id_building, :id_client, :enter_date, :enter_time, :exit_date, :exit_time, :count_berth, :extra_berth, :status)";
 		$sql2 = "INSERT INTO clients VALUES( :id_client, :client_name , :client_surname, :client_patronymic, :client_email, :phone)";
 		// Выбираем из массива данные для таблицы бронирования
 		$parametr1 = array_slice($post_data, 0, 7);
-		$parametr1 += array_slice($post_data, -3, 3);
+		$parametr1 += array_slice($post_data, -4, 4);
 		// Выбираем из массива данные для таблицы клиентов
 		$parametr2 = array_slice($post_data, 7, 5);
 		$parametr2 += array_slice($post_data, -1, 1);
 
-		if($this->date_helper->inSpan($post_data['id_room'], $post_data['enter_date'], $post_data['exit_date'])){
+		// Проверка попадания в диапазон
+		if($this->date_helper->inSpan($post_data['id_room'], $post_data['id_building'], $post_data['enter_date'], $post_data['exit_date'])){
 			return $message = "Даты в указанном дапазоне заняты"; 
 		}
+
+		// Потом убарать
+		// echo "<pre>"; print_r($post_data);
+		// echo "<pre>"; print_r($parametr1);
+		// echo "<pre>"; print_r($parametr2);
+		// exit();
+
 		//Создаем клиента
 		$this->database->set($sql2, $parametr2);
 		//Создаем бронироваение

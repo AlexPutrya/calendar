@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Янв 18 2017 г., 17:25
+-- Время создания: Янв 19 2017 г., 13:27
 -- Версия сервера: 5.5.50
 -- Версия PHP: 5.4.45
 
@@ -29,15 +29,24 @@ SET time_zone = "+00:00";
 CREATE TABLE IF NOT EXISTS `booking` (
   `id_booking` int(20) NOT NULL,
   `id_room` int(10) NOT NULL,
+  `id_building` int(10) NOT NULL,
+  `id_client` int(10) NOT NULL,
   `enter_date` int(30) NOT NULL,
   `enter_time` varchar(10) NOT NULL,
   `exit_date` int(30) NOT NULL,
   `exit_time` varchar(10) NOT NULL,
   `count_berth` int(5) NOT NULL,
   `extra_berth` int(5) NOT NULL,
-  `status` int(5) NOT NULL,
-  `id_client` int(10) NOT NULL
+  `status` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `booking`
+--
+
+INSERT INTO `booking` (`id_booking`, `id_room`, `id_building`, `id_client`, `enter_date`, `enter_time`, `exit_date`, `exit_time`, `count_berth`, `extra_berth`, `status`) VALUES
+(29235839, 7, 1, 156, 1483995600, '12:20', 1484427600, '12:20', 1, 1, 1),
+(72351074, 6, 1, 56, 1483995600, '12:15', 1484427600, '12:15', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -80,6 +89,15 @@ CREATE TABLE IF NOT EXISTS `clients` (
   `client_email` varchar(50) DEFAULT NULL,
   `phone` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `clients`
+--
+
+INSERT INTO `clients` (`id_client`, `client_name`, `client_surname`, `client_patronymic`, `client_email`, `phone`) VALUES
+(56, 'выавы', 'ааы', 'ываы', 'ываы', 0),
+(156, 'ываав', 'уаыв', 'ываы', 'аыва', 0),
+(726, 'выавы', 'ааы', 'ываы', 'ываы', 0);
 
 -- --------------------------------------------------------
 
@@ -157,6 +175,7 @@ INSERT INTO `users` (`id_user`, `user_login`, `user_pass`, `user_privilege`) VAL
 ALTER TABLE `booking`
   ADD PRIMARY KEY (`id_booking`),
   ADD KEY `id_room` (`id_room`),
+  ADD KEY `id_building` (`id_building`),
   ADD KEY `id_client` (`id_client`);
 
 --
@@ -213,7 +232,8 @@ ALTER TABLE `users`
 --
 ALTER TABLE `booking`
   ADD CONSTRAINT `booking_ibfk_1` FOREIGN KEY (`id_room`) REFERENCES `rooms` (`id_room`),
-  ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`id_client`) REFERENCES `clients` (`id_client`);
+  ADD CONSTRAINT `booking_ibfk_2` FOREIGN KEY (`id_building`) REFERENCES `buildings` (`id_building`),
+  ADD CONSTRAINT `booking_ibfk_3` FOREIGN KEY (`id_client`) REFERENCES `clients` (`id_client`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
