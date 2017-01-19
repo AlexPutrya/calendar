@@ -24,7 +24,7 @@ class Booking{
 			$number_list[] = $row['id_booking'];
 		}
 		// Генерм новый номер до тех пор, пока не перестанет совпадать с номерами в массиве
-		while($i=1){
+		while(true){
 			if(in_array($booking_number, $numbers_list)){
 				$booking_number = rand(0,99999999);
 			}else{
@@ -69,7 +69,7 @@ class Booking{
 
 		// Проверка попадания в диапазон
 		if($this->date_helper->inSpan($post_data['id_room'], $post_data['id_building'], $post_data['enter_date'], $post_data['exit_date'])){
-			return $message = "Даты в указанном дапазоне заняты"; 
+			return $message = "Даты в указанном диапазоне заняты";
 		}
 
 		// Потом убарать

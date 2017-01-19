@@ -15,7 +15,41 @@ $buildings_list = $buildings->getList();
 	</select><br>
 	Дата календаря <br>
 	<input type='text' class='datepicker-here' name="primary_date" /><br>
+	<button type="submit" class="btn btn-success"> <i class="icon-search"></i> Показать</button>
 </form>
+
+
+<!-- РЕАЛИЗОВАТЬ -->
+<?php
+$rooms = [
+			array('id_room' => "", "room_name" => ""),
+			array('id_room' => "", "room_name" => "")
+			];
+$bookings = [
+			array("id_room" => "", "enter_date" => "", "exit_date" => ""),
+			array("id_room" => "", "enter_date" => "", "exit_date" => "")
+			];
+
+for($i = now; now<=end, $i+86400){
+	forach($rooms as $room){
+	echo $room['room_name'];
+	foreach($booking as $booking){
+		if($booking['id_room'] = $room['id_room']){
+			if($i = $booking['enter_date'] || $i = $booking['exit_date'] OR $i > $booking['enter_date'] && $i < $booking['exit_date']){
+				"Закрашиваем квадратик";
+			}
+		}
+		continue
+	}
+	}
+}
+?>
+
+
+
+
+
+
 
 <?php
 //Ни в коем случае не применять time() и strtotime(now) будут сбои она постоянно меняется

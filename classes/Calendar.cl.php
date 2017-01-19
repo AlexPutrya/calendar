@@ -13,5 +13,4 @@ class Calendar{
 		$this->end_calendar = $this->now_calendar+86400*29;//Метка последнего дня календаря
 		$this->database = new DB();//Пдключаем БД
 	}
-
 }
